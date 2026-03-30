@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Tarefas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header>
+      <div class="container">
+        <div class="header-accent">✦ Te organiza, seja produtiva!</div>
+        <h1>Se liga nas demandas</h1>
+        <p class="subtitle">Gerencie seu tempo para entregar tudo com qualidade!</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="container main-grid">
+
+        <section class="card panel" aria-labelledby="form-title">
+          <h2 id="form-title">Cadastrar tarefa</h2>
+          <p class="helper">Preencha os campos abaixo para adicionar uma nova tarefa.</p>
+
+          <form id="form-tarefa">
+            <div class="field">
+              <label for="titulo">Título da tarefa</label>
+              <input id="titulo" type="text" placeholder="Ex.: Finalizar documentação do projeto" />
+            </div>
+
+            <div class="field">
+              <label for="descricao">Descrição</label>
+              <textarea id="descricao" placeholder="Descreva os detalhes da tarefa..."></textarea>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="data">Data de criação</label>
+                <input id="data" type="date" />
+              </div>
+              <div class="field">
+                <label for="prioridade">Prioridade</label>
+                <select id="prioridade">
+                  <option value="">Selecione</option>
+                  <option value="Baixa">Baixa</option>
+                  <option value="Média">Média</option>
+                  <option value="Alta">Alta</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status">
+                <option value="Pendente">Pendente</option>
+                <option value="Concluída">Concluída</option>
+              </select>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn-primary" id="btn-salvar">Salvar tarefa</button>
+              <button type="button" class="btn-secondary" id="btn-cancelar-edicao" style="display:none;">Cancelar edição</button>
+              <button type="reset" class="btn-secondary" id="btn-limpar">Limpar campos</button>
+            </div>
+
+            <p id="mensagem-formulario" class="mensagem-formulario" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="content">
+
+          <div class="metrics">
+            <article class="metric">
+              <span>Total de tarefas</span>
+              <strong id="total-tarefas">0</strong>
+            </article>
+            <article class="metric">
+              <span>Pendentes</span>
+              <strong id="total-pendentes">0</strong>
+            </article>
+            <article class="metric">
+              <span>Concluídas</span>
+              <strong id="total-concluidas">0</strong>
+            </article>
+            <article class="metric">
+              <span>Alta prioridade</span>
+              <strong id="total-alta">0</strong>
+            </article>
+          </div>
+
+          <section class="card panel">
+            <h2>Consulta de tarefas</h2>
+            <p class="helper">Busque por título ou filtre por prioridade, status e ordem da data de criação da tarefa.</p>
+            <div class="toolbar">
+              <div class="field">
+                <label for="busca">Pesquisar pelo título</label>
+                <input id="busca" type="search" placeholder="Digite uma palavra-chave" />
+              </div>
+              <div class="field">
+                <label for="filtro-prioridade">Prioridade</label>
+                <select id="filtro-prioridade">
+                  <option value="">Todas</option>
+                  <option value="Baixa">Baixa</option>
+                  <option value="Média">Média</option>
+                  <option value="Alta">Alta</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="filtro-status">Status</label>
+                <select id="filtro-status">
+                  <option value="">Todos</option>
+                  <option value="Pendente">Pendente</option>
+                  <option value="Concluída">Concluída</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="ordenacao">Ordenar por data</label>
+                <select id="ordenacao">
+                  <option value="">Sem ordenação</option>
+                  <option value="data-asc">Mais antiga primeiro</option>
+                  <option value="data-desc">Mais recente primeiro</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section class="card panel">
+            <h3>Tarefas cadastradas</h3>
+            <div class="task-list" id="lista-tarefas">
+            </div>
+          </section>
+
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        Fundamentos da Programação WEB I Sistema de Lista de Tarefas I Desenvolvido por Mariana Soares I 2026
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
